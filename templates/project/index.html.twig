@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
   
 {% block title %}Project index{% endblock %}
-  
+
 {% block body %}
     <div class="container">
         <h2 class="text-center mt-5 mb-3">Symfony Project Manager</h2>
@@ -16,6 +16,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Description</th>
+                        <th>brochure filename</th>
                         <th>Date Created</th>
                         <th>Date Updated</th>
                         <th width="240px">Action</th>
@@ -24,6 +25,10 @@
                     <tr>
                         <td>{{ project.name }}</td>
                         <td>{{ project.description }}</td>
+                        <td>{{ project.brochureFilename }}</td>
+                        <td><a href="{{ asset('uploads/brochures/' ~ project.brochureFilename) }}" target="_blank">View brochure (PDF)</a></td>
+                        {# <td><a href="{{ asset( ~ product.brochureFilename) }}">View brochure (PDF)</a></td> #}
+                        
                         <td>{{ project.createdAt ? project.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                         <td>{{ project.updatedAt ? project.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                         <td>

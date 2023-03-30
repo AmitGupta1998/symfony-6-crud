@@ -28,6 +28,22 @@ class Project
     #[ORM\Column(type: 'datetime', nullable: true)]
     private $updated_at;
  
+
+    #[ORM\Column()]
+    private $brochureFilename;
+
+    public function getBrochureFilename()
+    {
+        return $this->brochureFilename;
+    }
+
+    public function setBrochureFilename(string $brochureFilename): self
+    {
+        $this->brochureFilename = $brochureFilename;
+
+        return $this;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
